@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Miners</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="lobby-view">
+        <div class="lobby-box">
+            <h1>NEXUS MINERS</h1>
+            <p>Enter your name to join the lobby.</p>
+            <input type="text" id="player-name-input" placeholder="Enter your callsign..." maxlength="15">
+            <button id="join-lobby-btn">Join Lobby</button>
+            <div id="lobby-players-container" class="hidden">
+                <h2>Lobby Status</h2>
+                <ul id="player-list"></ul>
+                <button id="player-ready-btn">Ready Up</button>
+                <p class="lobby-instructions">Game will start when 2-4 players are ready.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-view" class="hidden">
+        <header id="game-header">
+            <p id="game-message">Initializing game...</p>
+        </header>
+
+        <main id="game-main">
+            <aside id="left-player-panel" class="player-panel"></aside>
+            
+            <div id="center-panel">
+                <div id="board-container">
+                    </div>
+                <div id="action-panel">
+                    <button id="end-turn-btn" class="hidden">End Turn</button>
+                    </div>
+            </div>
+
+            <aside id="right-player-panel" class="player-panel"></aside>
+        </main>
+    </div>
+    
+    <div id="game-over-modal" class="hidden">
+        <div class="modal-content">
+            <h2 id="winner-announcement"></h2>
+            <p>Thank you for playing!</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
