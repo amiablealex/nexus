@@ -163,4 +163,4 @@ def handle_disconnect():
 if __name__ == '__main__':
     # Use socketio.run() to start the development server
     # debug=True will auto-reload the server when code changes
-    socketio.run(app, debug=True, port=5000)
+    socketio.run(app, host='0.0.0.0', debug=True, port=5000)
